@@ -1,0 +1,26 @@
+{
+  "name": "cypress_e2e_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run --spec ./cypress/integration/Automation_test/applitools_eyes.spec.js",
+    "test:chrome": "npx cypress run --spec ./cypress/integration/Automation_test/zue-and-throw.spec.js --browser chrome",
+    "test:chrome:head": "npx cypress run --spec ./cypress/integration/Automation_test/zue-and-throw.spec.js --browser chrome --headed",
+    "test:chrome:record": "npx cypress run --spec ./cypress/integration/Automation_test/zue-and-throw.spec.js --browser chrome --record",
+    "key": "--record --key 4b802de2-c2a0-4d7f-9063-adaf8bfd7c66"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^5.5.3"
+  },
+  "devDependencies": {
+    "@applitools/eyes-cypress": "^3.22.3",
+    "@applitools/eyes.cypress": "^3.4.11",
+    "cypress": "^8.2.0",
+    "cypress-iframe": "^1.0.1",
+    "cypress-xpath": "^1.6.2",
+    "mochawesome": "^6.2.2"
+  }
+}
