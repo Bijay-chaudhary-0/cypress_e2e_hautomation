@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [ master ]
   spec:
-  schedule: "45 1 * * *"
+  schedule: 45 1 * * *
 
 jobs:
   build:
