@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run --spec ./cypress/integration/Automation_test/applitools_eyes.spec.js",
-    "test:chrome": "npx cypress run --spec ./cypress/integration/Automation_test/Function.spec.js --browser chrome",
+    "test:chrome": "npx cypress run --spec ./cypress/integration/Automation_test/Function.spec.js --browser chrome --record --key 4b802de2-c2a0-4d7f-9063-adaf8bfd7c66",
     "test:chrome:head": "npx cypress run --spec ./cypress/integration/Automation_test/zue-and-throw.spec.js --browser chrome --headed",
     "test:chrome:record": "npx cypress run --spec ./cypress/integration/Automation_test/zue-and-throw.spec.js --browser chrome --record",
     "key": "--record --key 4b802de2-c2a0-4d7f-9063-adaf8bfd7c66"
