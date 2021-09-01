@@ -43,6 +43,7 @@ describe('Using functions', () => {
         kiss.concatinate()
         kiss.Calculate()
         cy.get('#numberAnswerField', { timeout: 5000 }).should('have.value', "" + num1 + num2)
+        cy.log(PUSH_HERE)
     })
 
 })
