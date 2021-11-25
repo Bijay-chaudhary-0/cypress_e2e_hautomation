@@ -23,7 +23,6 @@ describe('post user request', () => {
                 expect(ponse.body.data).has.property('status', 'active')
                 expect(ponse.body.data).has.property('gender', 'female')
             })
-            //update user by using PUT
             .then((ponse) => {
                 const ID = ponse.body.data.id
                 cy.request({

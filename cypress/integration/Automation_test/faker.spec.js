@@ -10,7 +10,7 @@ describe('first faker program', () => {
         cy.xpath('//input[@name="lastname"]')
             .type(faker.name.lastName())
 
-        cy.xpath('//div[@class="sc-hGoxap fafhOX"] //input[@name="username"]')
+        cy.xpath('//div[@class="sc-hGoxap dNiEyi"] // input[@name="username" and @type="text"]')
             .type(faker.internet.userName())
 
         cy.xpath('//input[@name="email"]')
@@ -34,7 +34,7 @@ describe('first faker program', () => {
 
         cy.xpath('//div[@class="sc-bMvGRv iaoXLL"]/button[@type="submit"]')
             .click()
-        cy.xpath('//div[@class="col-md-12"]/h1[@id="page-header"]')
-            .should('have.text', 'Check your email')
+        cy.get('#page-header')
+            .contains('Check your email')
     })
 })
