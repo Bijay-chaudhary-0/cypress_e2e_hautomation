@@ -36,5 +36,10 @@ describe('first faker program', () => {
             .click()
         cy.get('#page-header')
             .contains('Check your email')
+
+        cy.get('div.sc-ipXKqB > button[type="submit"]')
+        .click()       
+
+
     })
 })

@@ -12,7 +12,7 @@ describe('testing', () => {
             .click()
     })
     it('third element', () => {
-        cy.get('ul >li > #elementattributestest')
+        cy.get('ul >li > #elementattributestest',{timeout: 4000})
             .click()
     })
 })

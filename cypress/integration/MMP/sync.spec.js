@@ -1,7 +1,7 @@
 var username = "bjay.chaudhary.01@gmail.com"
 var password = "test@123"
 var n = "601015"
-var m = "000002"
+var m = "10010"
 var num = n + m
 describe('Automating', () => {
     it('Syncing after being verified by IDEMIA', () => {
@@ -29,8 +29,8 @@ describe('Automating', () => {
         cy.xpath('//a[normalize-space()="Pending Customer"]')
             .click()
 
-        cy.xpath('//button[normalize-space()="eKYC Update Approved/Rejected"]')
-            .contains(' eKYC Update Approved/Rejected ')
+        cy.get('.box-body > :nth-child(1) > :nth-child(5)')
+            .contains(' eKYC Customers Approved/Rejected ')
             .click()
 
         cy.get('kendo-grid[dir="ltr"]>div.k-grid-aria-root>div.k-grid-header>div > table[role="presentation"] >thead> tr.k-filter-row > :nth-child(3) >  .k-filtercell > .k-filtercell-wrapper > input')
@@ -55,7 +55,7 @@ describe('Automating', () => {
             .click()
         cy.wait(6000)
         cy.get('kendo-grid[dir="ltr"]>div.k-grid-aria-root>div.k-grid-header>div > table[role="presentation"] >thead> tr.k-filter-row > :nth-child(3) >  .k-filtercell > .k-filtercell-wrapper > input')
-            .click({force:true})
+            .click({ force: true })
             .type(num)
             .wait(2000)
             .type('{enter}')

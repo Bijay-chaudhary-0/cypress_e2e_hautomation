@@ -69,7 +69,7 @@ describe('autoation_task_E2E_test', () => {
 
     it('Login', () => {
 
-        cy.visit('http://demo.guru99.com/test/newtours/')
+        cy.visit('https://demo.guru99.com/test/newtours/')
 
         cy.xpath('//input[@type="text"]')
             .type(userName, { timeout: 4000 })
@@ -77,8 +77,10 @@ describe('autoation_task_E2E_test', () => {
         cy.xpath('//input[@type="password"]')
             .type('Bijay@9876')
 
+        cy.wait(500)
         cy.xpath('//input[@value="Submit"]')
             .click()
+        cy.wait(600)
         cy.title()
             .should('be.equal','Login: Mercury Tours')
 
