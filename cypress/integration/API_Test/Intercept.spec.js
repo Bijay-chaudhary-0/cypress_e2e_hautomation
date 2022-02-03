@@ -1,24 +1,16 @@
-describe('intercept with cypress',()=>{
-    it('test api with simple intercept',()=>{
-        cy.visit("https://rahulshettyacademy.com/angularAppdemo/")
+describe('intercept with cypress', () => {
+    it('test api with simple intercept', () => {
+        cy.visit("https://jsonplaceholder.typicode.com/")
 
-        cy.intercept(
-            {
-                method: 'GET',
-                url: 'https://rahulshettyacademy.com/Library/GetBook.php?AuthorName=shetty'
-            },
-            {
-                "body": [
-                    {
-                        "book_name": "Stubbed Book",
-                        "isbn": "SB1",
-                        "aisle": "01"
-                    }
-                ]
-            }).as('booklist')
+        cy.intercept({
+            path: " /posts"
+        }).as("posts")
 
-        cy.get('.btn-primary').click()
+        cy.get('table:nth-of-type(2) a[href="/posts"]').click()
 
-        cy.wait('@booklist')
+        cy.wait("@posts").then(func => {
+            cy.log(JSON.stringify(func))
+            console.log(JSON.stringify(func))
+        })
     })
 })

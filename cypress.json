@@ -3,5 +3,6 @@
         "overwrite": false
     },
     "experimentalStudio": true,
-    "projectId": "xjh4xw"
+    "projectId": "xjh4xw",
+    "chromeWebSecurity": false
 }
