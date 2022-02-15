@@ -15,7 +15,7 @@ describe('Using postman functions here', () => {
     it('get users by ID', () => {
         cy.request({
             method: 'GET',
-            url: web +'/public-api/users',
+            url: web +'/public/v2/users',
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             }
