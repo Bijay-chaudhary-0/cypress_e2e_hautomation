@@ -1,5 +1,5 @@
 describe('Using postman functions here', () => {
-    const accessToken = 'ca3f5a91ab46e8484acfa6a3c678a162ac8edd08037a3a69d04f23493b54346f'
+    const accessToken = '756cc20c26596f0b0e30ed33cb5de8fe3278ca56d76ddd21e3095c844192a8a1'
     const web = 'https://gorest.co.in'
     it('get users', () => {                         //describe and it comes from mocha
         cy.request({
@@ -22,7 +22,7 @@ describe('Using postman functions here', () => {
 
         }).then((ponse) => {
             expect(ponse.status).to.eq(200)
-            expect(ponse.body.data.name).to.eq('Goswami Sinha')
+            expect(ponse.body.data.name).to.eq('Monkey D. Luffy')
         })
     })
 })

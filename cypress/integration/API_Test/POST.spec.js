@@ -23,7 +23,7 @@ describe('post user request', () => {
                 cy.log(JSON.stringify(ponse.body.id))
                 const ID = ponse.body.id
                 expect(ponse.body).has.property('name', "Scarlet")
-                expect(ponse.body).has.property('email',"Scar@let.com")
+                expect(ponse.body).has.property('email', "Scar@let.com")
                 expect(ponse.status).to.eq(201)
                 cy.log(ponse.body.name)
                 cy.request({

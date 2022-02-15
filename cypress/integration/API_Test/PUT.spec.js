@@ -1,51 +1,56 @@
 describe('post user request', () => {
     const web = 'https://gorest.co.in'
-    const accessToken = 'ca3f5a91ab46e8484acfa6a3c678a162ac8edd08037a3a69d04f23493b54346f'
+    var faker = require('faker')
+    var firstname = faker.name.firstName
+    var lastname = faker.name.lastName
+    var email = faker.internet.email
+    var ID
+    const accessToken = '756cc20c26596f0b0e30ed33cb5de8fe3278ca56d76ddd21e3095c844192a8a1'
     it('create user', () => {
         cy.request({
             method: 'POST',
-            url: web + '/public/v1/users',
+            url: web + '/public/v2/users',
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             },
             body: {
-                "name": 'Kocho',
-                "email": 'Kocho@2email.com',
+                "name": "Sophia Hater",
+                "email": "something@gmail.com",
                 "status": "active",
                 "gender": "female"
             }
         })
             .then((ponse) => {
                 cy.log(JSON.stringify(ponse))
+                ID = ponse.body.data.id
                 expect(ponse.status).to.eq(201)
-                expect(ponse.body.data).has.property('name', 'Kocho')
-                expect(ponse.body.data).has.property('email', 'Kocho@2email.com')
-                expect(ponse.body.data).has.property('status', 'active')
-                expect(ponse.body.data).has.property('gender', 'female')
+                expect(ponse.body).has.property('name', "Sophia Hater")
+                expect(ponse.body).has.property('email', "something@gmail.com")
+                expect(ponse.body).has.property('status', 'active')
+                expect(ponse.body).has.property('gender', 'female')
             })
             //update user by using PUT
             .then((ponse) => {
-                const ID = ponse.body.data.id
                 cy.request({
                     method: 'PUT',
-                    url: web + '/public-api/users/'+ID,
+                    url: web + '/public-api/users/' + ID,
                     headers: {
                         'Authorization': 'Bearer ' + accessToken
                     },
                     body: {
-                        "name": 'moikoi',
-                        "email": 'boi@email.com',
+                        "name": 'Calcifer',
+                        "email": 'homie@email.com',
                         "status": "inactive",
-                        "gender": "female"
+                        "gender": "male"
                     }
                 })
-                    .then((ponse) => {
-                        expect(ponse.status).to. eq(200)
-                        expect(ponse.body.data).has.property('name', 'moikoi')
-                        expect(ponse.body.data).has.property('email', 'boi@email.com')
-                        expect(ponse.body.data).has.property('status', 'inactive')
-                        expect(ponse.body.data).has.property('gender', 'female')
-                    })
+                /*  .then((ponse) => {
+                     expect(ponse.status).to.eq(200)
+                     expect(ponse.body.data).has.property('name', 'Calcifer')
+                     expect(ponse.body.data).has.property('email', 'homie@email.com')
+                     expect(ponse.body.data).has.property('status', 'inactive')
+                     expect(ponse.body.data).has.property('gender', 'male')
+                 }) */
             })
     })
 })
